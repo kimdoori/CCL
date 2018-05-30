@@ -1,0 +1,84 @@
+
+body,html{
+	margin:0px;
+	padding:0px;
+	width:100%;
+	height:100%;
+}
+#title{
+	width:100%;
+	margin:auto;
+	padding:10px;
+}
+
+#imageList{
+
+	width:100%;
+	heigh:80px;
+	margin:auto;
+	padding:10px;
+	overflow:auto;
+	
+	
+}
+#gameTable{
+	margin:auto;
+	boder:1px solid black;
+}
+.place{
+    width: 150px;
+    height: 150px;
+    margin: 1px;
+    padding: 10px;
+    border: 1px solid black;
+    display:inline-block;
+}
+.home{
+	text-align:center;
+    width: 150px;
+    height: 150px;
+    margin: 20px auto;
+    padding: 10px;
+    border: 1px solid black;
+}
+#selectGroup{
+	text-align:left;
+	width:80%;
+	margin:auto;
+	border: 1px solid black;
+	
+}
+.plus{
+	width: 4px;
+    height: 4px;
+    margin-top:0px;
+}
+td{
+	text-align:right;
+}
+
+.addGroup {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+    margin-left:12px;
+}
+
+.addGroup .addChinese {
+    visibility: hidden;
+    width: 150px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    border:1px solid black;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top:20px;
+    left: -130px;
+  /*  // top: -5px; */
+  /* //  left: 105%; */
+}

@@ -2,5 +2,5 @@
     pageEncoding="UTF-8"%>
 <jsp:forward page="framePage.jsp">
 	<jsp:param name="CONTENTPAGE" value="content.jsp"/>
-
-</jsp:forward>
+<%-- C:\jsp_study\project\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\CCL\WEB-INF\game--%>
+</jsp:forward> 

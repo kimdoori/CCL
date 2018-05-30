@@ -3,48 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<style>
-body,html{
-	margin:0px;
-	padding:0px;
-	width:100%;
-	height:100%;
-}
-#title{
-	width:100%;
-	margin:auto;
-	padding:10px;
-}
-
-#imageList{
-
-	width:100%;
-	heigh:80px;
-	margin:auto;
-	padding:10px;
-	overflow:auto;
-	
-	
-}
-#gameTable{
-	margin:auto;
-}
-.place{
-    width: 150px;
-    height: 150px;
-    margin: 1px;
-    padding: 10px;
-    border: 1px solid black;
-}
-#selectGroup{
-	text-align:left;
-	width:80%;
-	margin:auto;
-	border: 1px solid black;
-	
-}
-
-</style>
+<link rel="stylesheet" href="css/game.css">
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="js/createGame.js"></script>
 
@@ -73,7 +32,12 @@ body,html{
 	for(int i=0;i<4;i++){
 		out.println("<tr>");
 		for(int j=0;j<4;j++){
-			out.println("<td><div id='place"+i+j+"' class='place' ondrop='drop(event)' ondragover='allowDrop(event)'></div></td>");
+			out.println("<td><div class='addGroup'><button type='button' onclick=\"showChinese('content"+i+j+"')\">+</button>"+
+			"<span id='content"+i+j+"' class='addChinese'>"+
+			"<input type='text' id='mean"+i+j+"' name='mean' size='3' placeholder='뜻'> <input type='text' id='sound"+i+j+"' name='sound' size='3' placeholder='음'>"+
+			"<input type='text' id='chinese"+i+j+"' name='chinese' size='4' placeholder='한자'><br><br><button type='button' onclick=\"addChineseToDiv('"+i+j+"')\">추가</button>"+
+			"<span id='chineseSpan"+i+j+"'></span></span></div>"+
+			"<br><div id='place"+i+j+"' class='place' ondrop='drop(event)' ondragover='allowDrop(event)'></div></td>");
 		}
 		out.println("</tr>");
 	}
@@ -81,6 +45,13 @@ body,html{
 %>
 </table>
 <br>
+<form action="saveGameProc.jsp" method="post">
+<input id="saveChinese" name="saveChinese" type="hidden">
+<input id="saveImage" name="saveImage" type="hidden">
 
+<button type="button" onclick="saveData()">저장</button>
+<input type="submit" value="제작">
+
+</form>
 </body>
 </html>
