@@ -27,16 +27,7 @@
 .top-menu-btn a { 
     text-decoration: none;
 }
-.login-menu-btn { 
-   background-color:rgb(0,0,30,0);
-    color:#78E678;
-    padding: 8px;
-    font-size: 20px;
-    border: none;
-    cursor: pointer;
-    margin-right:30px;
-  /*   font-family:'HELLO DENVER DISPLAY BOLD Bold','neon'; */
-}
+
 
 
 .top-menu-container:hover .top-menu-detail {

@@ -1,0 +1,30 @@
+
+/* Scrollbar styles */
+.scroll-container{
+margin:auto;
+ overflow:scroll;
+width:800px;
+ height:600px;
+ border:1px solid #5cc461;
+ 
+ }
+ 
+.scroll-container::-webkit-scrollbar{
+width: 12px;
+height: 12px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+border: 0px solid #5cc461;
+border-radius: 5px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+background: #5cc461;  
+border-radius: 5px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+background: #88ba1c;  
+}
+ 
