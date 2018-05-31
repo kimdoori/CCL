@@ -1,5 +1,6 @@
 var chineseStr="";
 var deletechineseStr="";
+var currentAnswer = 1;
 
 
 function allowDrop(ev) {
@@ -19,12 +20,13 @@ function drop(ev) {
     
     
     if(dragObject.id=="character"){
-    	if(ev.target.id == "image"){
+    	if(ev.target.id.includes("imageAnswer")){
     		ev.target.parentElement.appendChild(dragObject);
     		dragObject.style.position="relative";
     		dragObject.style.top="-85px";
     		dragObject.style.left="-20px";
-    		
+    		//TODO : 이미지가 있는 테이블에 놓았을 때 
+    		checkImageChinese(ev.target.id);
     		return;
     	}
 		dragObject.style.position="static";
@@ -118,4 +120,80 @@ function saveData(){
 			
 		}
 	}
+}
+
+var chineseAnswer ="";
+var meanAnswer ="";
+var soundAnswer ="";
+var answers;
+var answerStr="";
+var cnt = 0;
+
+window.onload=init;
+
+function init(){
+	var answerList = document.getElementById("answerList").value;
+	answers = answerList.split(":");
+}
+
+
+function checkImageChinese(imageID){
+	id = imageID.substring(imageID.indexOf("r")+1);
+	
+	cnt = 0;
+	currentAnswer = 1;
+	chineseAnswer ="";
+	meanAnswer ="";
+	soundAnswer ="";
+	answerStr="";
+	
+	for(var i=0;i<answers.length-1;i++){
+		//alert(answers[i].substring(0,2));
+		if(answers[i].substring(0,2) == id){
+			//alert(answers[i]);
+			cnt++;
+			document.getElementById("chinese_cover").style.display="block";
+			answerStr+= answers[i]+":";
+			
+		}
+		
+		
+	}
+	
+	if(cnt>1){
+		document.getElementById("prev").style.display="inline-block";
+		document.getElementById("next").style.display="inline-block";
+		
+	}else{
+		document.getElementById("prev").style.display="none";
+		document.getElementById("next").style.display="none";	
+	}
+	showAnswer(1);
+	
+}
+
+function showAnswer(num) {
+	   
+	   //in the next 2 lines, you make sure which isn't lower than 1, and isn't greater than the number of images
+		if(num<1) num=1;
+		if(num > cnt) num = cnt;
+		
+		var answerArray = answerStr.split(":");
+		var answer = answerArray[num-1].split(",");
+		chineseAnswer=answer[1];
+		meanAnswer=answer[2];
+		soundAnswer=answer[3];
+	
+	/*   if(num < 1) num = 1;
+	   if(num > <%=cnt%>) num = <%=cnt%>;*/
+	   currentAnswer=num;
+	   document.getElementById("chineseAnswer").innerHTML=chineseAnswer;
+	   document.getElementById("meanAnswer").innerHTML=meanAnswer;
+	   document.getElementById("soundAnswer").innerHTML=soundAnswer;
+	   
+
+	   
+}
+function goToQuiz(){
+	location.href="quizProc.jsp";
 }
