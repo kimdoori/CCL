@@ -9,7 +9,16 @@
 
 </head>
 <body>
+<%
 
+	request.setCharacterEncoding("UTF-8");
+
+	String title = request.getParameter("title");
+	String creater = request.getParameter("writer");
+	String showImage = request.getParameter("showImage");
+	
+
+%>
 <div id="title">
 <h2>게임 화면을 구성해주세요.</h2>
 <p>이미지를 드래그 앤 드롭해서 배치하고 싶은 위치에 놓아주세요.</p>
@@ -46,6 +55,10 @@
 </table>
 <br>
 <form action="saveGameProc.jsp" method="post">
+<input name="title" value="<%=title%>">
+<input name="creater" value="<%=creater%>">
+<input name="showImage" value="<%=showImage%>">
+
 <input id="saveChinese" name="saveChinese" type="hidden">
 <input id="saveImage" name="saveImage" type="hidden">
 

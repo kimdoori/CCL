@@ -34,8 +34,10 @@
 			
 </div>
 <div id="title">
+<center>
 <h2>게임 이름</h2>
 <p>캐릭터를 드래그 앤 드롭해서 배치하고 싶은 위치에 놓아주세요.</p>
+</center>
 </div>
 <div id='home' class='home' ondrop='drop(event)' ondragover='allowDrop(event)'>
 	<img src="image/dust3.png" draggable="true" ondragstart="drag(event)" id="character" width="80px" height="80px" style="z-index: 5;">
@@ -46,11 +48,14 @@
 <table id="gameTable">
 
 <%
+
+request.setCharacterEncoding("UTF-8");
+String fileName = request.getParameter("folderName");
+
 String[] imageArray = null;
 String[] chineseArray =null;
 
 BufferedReader reader = null;
-String fileName = "2018-05-30-08-29-10";
 
 try {
 	String imageFilePath = application.getRealPath("/WEB-INF/game/"+fileName+"/saveImage.txt");
@@ -114,15 +119,25 @@ for(int i=0;i<4;i++){
 		out.println("</td>");
 	}
 	out.println("</tr>");
+	
 }
 
 
 
-%>
 
+%>
 </table>
 
-<button type="button" onclick="goToQuiz()">퀴즈풀러가기</button>
+<form action="quiz.jsp">
+<%
+out.println("<input type='hidden' name='fileName' value='"+fileName+"'>"); 
+out.println("<input type='submit' value='퀴즈 풀러 가기'>"); 
+%>
+
+</form>
+
+
+
 
 </body>
 </html>

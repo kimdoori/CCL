@@ -195,5 +195,5 @@ function showAnswer(num) {
 	   
 }
 function goToQuiz(){
-	location.href="quizProc.jsp";
+	location.href="quiz.jsp";
 }

@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="css/scroll.css">
 </head>
 <body>
-게임리스트
+
 <div class="scroll-container">
 
 <%
@@ -32,24 +32,17 @@ try {
 		
 		String  title = reader.readLine();
 		String  w_time= reader.readLine();
-		String  image= reader.readLine();
-
-		StringBuffer contents = new StringBuffer();
-		String str;
-			while (true) {
-				str = reader.readLine();
-				if (str == null || str.substring(0, 1).equals("Q"))
-					break;
-				contents.append(str);
-			}
+		String  creater= reader.readLine();
+		String  showImage= reader.readLine();
 		
-			out.print("<div class='blog-card'><div class='photo photo1' style='background: url(\""+image+"\") center no-repeat;background-size: cover;'></div>"
-			+"<ul class='details'><li class='author'><a href='#'>작성자 : doori </a></li>"
+
+		
+			out.print("<div class='blog-card'><div class='photo photo1' style='background: url(\""+showImage+"\") center no-repeat;background-size: cover;'></div>"
+			+"<ul class='details'><li class='author'><a href='#'>작성자 : "+creater+" </a></li>"
 			+"<li class='date'>"+w_time+"</li></ul>"
 			+"<div class='description'><h1>"+title+"</h1>"
 			/* "<h2>Opening a door to the future</h2>" */
-			+"<p class='summary'>"+contents+"</p>"
-			+"<a href='joinSurvey.jsp?folderName="+tempFileName+"'>Go to survey</a></div></div>");
+			+"<a href='playingGame.jsp?folderName="+tempFileName+"'>게임 하러 가기</a></div></div>");
 			
 		
 

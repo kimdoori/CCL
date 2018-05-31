@@ -14,6 +14,12 @@
 <body>
 <%
 	request.setCharacterEncoding("UTF-8");
+	String title = request.getParameter("title");
+	System.out.println(title);
+	String creater = request.getParameter("creater");
+	System.out.println(creater);
+	String showImage = request.getParameter("showImage");
+	System.out.println(creater);
 	String saveChinese = request.getParameter("saveChinese");
 	System.out.println(saveChinese);
 	String saveImage = request.getParameter("saveImage");
@@ -21,12 +27,12 @@
 	
 	Date date = new Date();
 	SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd-hh-mm-ss");
-//	SimpleDateFormat simpleTime = new SimpleDateFormat("yyyy년 MM월 dd일 HH시 mm분");
+	SimpleDateFormat simpleTime = new SimpleDateFormat("yyyy년 MM월 dd일 HH시 mm분");
 
 	String w_date = simpleDate.format(date);
-	//String w_time = simpleTime.format(date);
+	String w_time = simpleTime.format(date);
 	
-	
+	String infoFilePath = application.getRealPath("/WEB-INF/game/"+w_date+"/gameInfo.txt");
 	String chineseFilePath = application.getRealPath("/WEB-INF/game/"+w_date+"/saveChinese.txt");
 	String imageFilePath = application.getRealPath("/WEB-INF/game/"+w_date+"/saveImage.txt");
 
@@ -76,7 +82,23 @@
 		result2="fail";
 	}
 	
-	response.sendRedirect("playingGameProc.jsp?send1="+result1+"&send2="+result2);
+	String result3;
+	try{
+		writer = new PrintWriter(infoFilePath);
+		writer.printf("%s%n",title);
+		writer.printf("%s%n",w_time);
+		writer.printf("%s%n",creater);
+		writer.printf("%s%n",showImage);
+		writer.flush();
+		writer.close();
+
+		result3="ok";
+	}catch(Exception e){
+		out.println("오류발생");
+		result3="fail";
+	}
+	
+	response.sendRedirect("createGameList.jsp?send1="+result1+"&send2="+result2);
 
 %>
 </body>
