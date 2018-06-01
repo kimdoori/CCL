@@ -12,6 +12,12 @@
 
 </head>
 <body>
+<%
+
+request.setCharacterEncoding("UTF-8");
+String fileName = request.getParameter("folderName");
+String character = request.getParameter("character");
+%>
 <div id="chinese_cover"
 			
 			style="cursor: pointer;display:none;">
@@ -40,7 +46,7 @@
 </center>
 </div>
 <div id='home' class='home' ondrop='drop(event)' ondragover='allowDrop(event)'>
-	<img src="image/dust3.png" draggable="true" ondragstart="drag(event)" id="character" width="80px" height="80px" style="z-index: 5;">
+	<img src="image/<%=character %>" draggable="true" ondragstart="drag(event)" id="character" width="80px" height="80px" style="z-index: 5;">
 </div>
 
 
@@ -49,8 +55,7 @@
 
 <%
 
-request.setCharacterEncoding("UTF-8");
-String fileName = request.getParameter("folderName");
+
 
 String[] imageArray = null;
 String[] chineseArray =null;
@@ -104,9 +109,11 @@ for(int i=0;i<4;i++){
 		out.println("<td><div id='place"+i+j+"' class='place' style='boder:0px' ondrop='drop(event)' ondragover='allowDrop(event)'>");
 		for(int k=imageIndex;k<imageArray.length;k++){
 			if(imageArray[k].substring(0,2).equals(String.valueOf(i+""+j))){
-				
+				if(!imageArray[k].substring(imageArray[k].indexOf(",") + 1).equals("")){
+
 				out.println("<img id='imageAnswer"+i+j+"' src='"+imageArray[k].substring(imageArray[k].indexOf(",")+1)+"' style='width: 100%; height: 100%;'>");
 				imageIndex++;
+				}
 			}
 		}
 	/* 	for(int k=chineseIndex;k<chineseArray.length;k++){

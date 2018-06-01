@@ -34,6 +34,8 @@ try {
 		String  w_time= reader.readLine();
 		String  creater= reader.readLine();
 		String  showImage= reader.readLine();
+		String  character= reader.readLine();
+		
 		
 
 		
@@ -42,7 +44,7 @@ try {
 			+"<li class='date'>"+w_time+"</li></ul>"
 			+"<div class='description'><h1>"+title+"</h1>"
 			/* "<h2>Opening a door to the future</h2>" */
-			+"<a href='playingGame.jsp?folderName="+tempFileName+"'>게임 하러 가기</a></div></div>");
+			+"<a href='playingGame.jsp?folderName="+tempFileName+"&character="+character+"'>게임 하러 가기</a></div></div>");
 			
 		
 

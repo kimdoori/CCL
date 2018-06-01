@@ -8,14 +8,25 @@
 <meta charset="UTF-8">
 <title>퀴즈</title>
 <link rel="stylesheet" href="css/quiz.css">
+<script>
+function goBack(){
+	history.back();
+}
+</script>
 </head>
 <body>
+<%
+request.setCharacterEncoding("UTF-8");
+response.setContentType("text/html; charset=UTF-8");
+%>
 <div id="quizContainer">
 <h3>한자 QU!Z !</h3>
 <hr>
-<form action="checkAnswer.jsp" method="post">
+<form action="checkAnswer.jsp" method="get">
 <%
-	request.setCharacterEncoding("UTF-8");
+
+
+
 	String fileName = request.getParameter("fileName");
 	
 	BufferedReader reader = null;
@@ -78,7 +89,9 @@
 			chinese.append(str+":");
 			count++;
 		}
-		out.println("<input type='hidden' id='answerList' value='"+chinese+"'>");
+		out.println("<input type='hidden' name='chinese' id='answerList' value='"+chinese+"'>");
+
+		out.println("<input type='hidden' name='count' id='count' value='"+count+"'>");
 
 	} catch (Exception e) {
 		out.println("파일을 읽을 수 없습니다.");
@@ -87,6 +100,8 @@
 %>
 <br>
 <input type="submit" value="제출">
+<button type="button" onclick="goBack()">게임으로 돌아가기</button>
+
 </form>
 </div>
 </body>

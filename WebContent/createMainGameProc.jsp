@@ -16,7 +16,8 @@
 	String title = request.getParameter("title");
 	String creater = request.getParameter("writer");
 	String showImage = request.getParameter("showImage");
-	
+	String character = request.getParameter("character");
+
 
 %>
 <div id="title">
@@ -55,9 +56,11 @@
 </table>
 <br>
 <form action="saveGameProc.jsp" method="post">
-<input name="title" value="<%=title%>">
-<input name="creater" value="<%=creater%>">
-<input name="showImage" value="<%=showImage%>">
+<input type="hidden" name="title" value="<%=title%>">
+<input type="hidden" name="creater" value="<%=creater%>">
+<input type="hidden" name="showImage" value="<%=showImage%>">
+<input type="hidden" name="character" value="<%=character%>">
+
 
 <input id="saveChinese" name="saveChinese" type="hidden">
 <input id="saveImage" name="saveImage" type="hidden">

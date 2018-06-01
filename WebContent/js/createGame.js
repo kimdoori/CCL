@@ -79,6 +79,8 @@ function addChineseToDiv(id){
 	
 	var chineseSpan = document.getElementById("chineseSpan"+id);
 	
+	
+	
 	var listSpan = document.createElement('span');
 	listSpan.id="listSpan"+id;
 	var totalParam = id+","+chinese.value+","+mean.value+","+sound.value+"/";
@@ -90,7 +92,7 @@ function addChineseToDiv(id){
 
 
 function deleteChinese(button,totalParam){
-	alert(totalParam);
+//	alert(totalParam);
 	deletechineseStr+=totalParam;
 	button.parentElement.remove();
 	
@@ -122,6 +124,33 @@ function saveData(){
 	}
 }
 
+function saveModifyData(){
+	
+	chineseStr+=document.getElementById("alreadyChinese").value;
+	var chinesArray = chineseStr.split("/");
+	//deletechineseStr
+	document.getElementById("saveChinese").value="";
+	document.getElementById("saveImage").value="";
+	
+	for(var i=0;i<chinesArray.length-1;i++){
+		//alert(chinesArray[i]);
+		if(!deletechineseStr.includes(chinesArray[i])){
+			
+			document.getElementById("saveChinese").value+= chinesArray[i]+":";
+		}
+		
+	}
+	
+	
+	for(var i=0;i<4;i++){
+		for(var j=0;j<4;j++){
+			var place = document.getElementById("place"+i+j).innerHTML;
+			if(place!="")
+				document.getElementById("saveImage").value+= i+""+j+","+place.substring(place.indexOf("\"")+1,place.indexOf("\"",place.indexOf("\"")+1))+":";
+			
+		}
+	}
+}
 var chineseAnswer ="";
 var meanAnswer ="";
 var soundAnswer ="";

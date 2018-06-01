@@ -14,27 +14,22 @@
 <body>
 <%
 	request.setCharacterEncoding("UTF-8");
+	String fileName = request.getParameter("fileName");
 	String title = request.getParameter("title");
 	String creater = request.getParameter("creater");
 	String showImage = request.getParameter("showImage");
 	String saveChinese = request.getParameter("saveChinese");
 	String saveImage = request.getParameter("saveImage");
-	String character = request.getParameter("character");
-
-	
 	
 	Date date = new Date();
-	SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd-hh-mm-ss");
 	SimpleDateFormat simpleTime = new SimpleDateFormat("yyyy년 MM월 dd일 HH시 mm분");
 
-	String w_date = simpleDate.format(date);
 	String w_time = simpleTime.format(date);
 	
-	String infoFilePath = application.getRealPath("/WEB-INF/game/"+w_date+"/gameInfo.txt");
-	String chineseFilePath = application.getRealPath("/WEB-INF/game/"+w_date+"/saveChinese.txt");
-	String imageFilePath = application.getRealPath("/WEB-INF/game/"+w_date+"/saveImage.txt");
+	String chineseFilePath = application.getRealPath("/WEB-INF/game/"+fileName+"/saveChinese.txt");
+	String imageFilePath = application.getRealPath("/WEB-INF/game/"+fileName+"/saveImage.txt");
 
-	File directory = new File(application.getRealPath("/WEB-INF/game/"+w_date+"/"));
+	File directory = new File(application.getRealPath("/WEB-INF/game/"+fileName+"/"));
 	 if(!directory.exists()){
            //디렉토리 생성 메서드
            directory.mkdirs();
@@ -81,23 +76,7 @@
 	}
 	
 	String result3;
-	try{
-		writer = new PrintWriter(infoFilePath);
-		writer.printf("%s%n",title);
-		writer.printf("%s%n",w_time);
-		writer.printf("%s%n",creater);
-		writer.printf("%s%n",showImage);
-		writer.printf("%s%n",character);
-
-		
-		writer.flush();
-		writer.close();
-
-		result3="ok";
-	}catch(Exception e){
-		out.println("오류발생");
-		result3="fail";
-	}
+	
 	
 	response.sendRedirect("createGameList.jsp?send1="+result1+"&send2="+result2);
 
