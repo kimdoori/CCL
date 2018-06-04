@@ -10,6 +10,25 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/card.css">
 <link rel="stylesheet" href="css/scroll.css">
+<style>
+.button{
+   background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+    width:150px;
+    heigth:100px;
+    padding:10px;
+    margin:10px;
+}
+.button:hover {
+    background-color: #008CBA;
+    color: white;
+}
+#create-button{
+	margin-right:500px;
+	text-align:right;
+}
+</style>
 <script>
 function goToCreate(){
 	location.href="createGameInfo.jsp";
@@ -18,8 +37,9 @@ function goToCreate(){
 </head>
 <body>
 
-<button onclick="goToCreate()">새로운 게임 제작</button>
-
+<div id="create-button">
+<button class="button" onclick="goToCreate()">새로운 게임 제작</button>
+</div>
 
 <div class="scroll-container">
 
@@ -50,7 +70,8 @@ try {
 			+"<li class='date'>"+w_time+"</li></ul>"
 			+"<div class='description'><h1>"+title+"</h1>"
 			/* "<h2>Opening a door to the future</h2>" */
-			+"<a href='modifyGame.jsp?folderName="+tempFileName+"'>수정하기</a></div></div>");
+			+"<p class='summary'><a href='modifyGame.jsp?folderName="+tempFileName+"'>수정하기</a><br><br>"
+			+"<a href='deleteGame.jsp?folderName="+tempFileName+"'>삭제하기</a></p></div></div>");
 			
 		
 

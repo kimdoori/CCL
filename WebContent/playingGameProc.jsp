@@ -9,7 +9,26 @@
 <link rel="stylesheet" href="css/game.css">
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="js/createGame.js"></script>
+<style>
+.button{
+   background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+    width:150px;
+    heigth:100px;
+    padding:10px;
+    margin:20px;
+    margin-right:50px;
+}
+.button:hover {
+    background-color: #008CBA;
+    color: white;
+}
+#button_div{
+	margin-right:600px;
+}
 
+</style>
 </head>
 <body>
 <%
@@ -17,6 +36,8 @@
 request.setCharacterEncoding("UTF-8");
 String fileName = request.getParameter("folderName");
 String character = request.getParameter("character");
+String title = request.getParameter("title");
+
 %>
 <div id="chinese_cover"
 			
@@ -25,7 +46,7 @@ String character = request.getParameter("character");
 
 			<img src="image/introBackImage.png"
 				style="width: 400px; height: 400px; position: absolute; z-index: 6; top:30%; left:40%;"  >
-			<button type="button" style="position: absolute; z-index: 7; top:30%; left:40%;" onclick="document.getElementById('chinese_cover').style.display = 'none';">x</button>
+			<button type="button" style="position: absolute; z-index: 7; top:30%; left:40%;font-size:1.5em;cursor:pointer;color:white; background-color: rgb(0,0,0,0.5);border-color:Transparent" onclick="document.getElementById('chinese_cover').style.display = 'none';">x</button>
 				
 			<div style="width: 400px; height: 400px; position: absolute; z-index: 8; top:40%; left:40%; text-align:center; padding:10px;">
 			<button type="button" id="prev" onclick="showAnswer(currentAnswer - 1)"><</button>
@@ -39,11 +60,20 @@ String character = request.getParameter("character");
 			</div>
 			
 </div>
+<form action="quiz.jsp">
+<div id="button_div">
+<%
+out.println("<input type='hidden' name='fileName' value='"+fileName+"'>"); 
+out.println("<input type='submit' value='퀴즈 풀기' class='button' style='vertical-align:middle;margin:auto;'>"); 
+%>
+</div>
 <div id="title">
 <center>
-<h2>게임 이름</h2>
+<h2><%=title %></h2>
 <p>캐릭터를 드래그 앤 드롭해서 배치하고 싶은 위치에 놓아주세요.</p>
 </center>
+
+</form>
 </div>
 <div id='home' class='home' ondrop='drop(event)' ondragover='allowDrop(event)'>
 	<img src="image/<%=character %>" draggable="true" ondragstart="drag(event)" id="character" width="80px" height="80px" style="z-index: 5;">
@@ -135,13 +165,7 @@ for(int i=0;i<4;i++){
 %>
 </table>
 
-<form action="quiz.jsp">
-<%
-out.println("<input type='hidden' name='fileName' value='"+fileName+"'>"); 
-out.println("<input type='submit' value='퀴즈 풀러 가기'>"); 
-%>
 
-</form>
 
 
 

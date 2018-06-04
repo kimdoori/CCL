@@ -6,7 +6,30 @@
 <link rel="stylesheet" href="css/game.css">
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="js/createGame.js"></script>
+<style>
 
+.button{
+   background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+    width:150px;
+    heigth:100px;
+    padding:10px;
+    margin:20px;
+    margin-right:50px;
+}
+.button:hover {
+    background-color: #008CBA;
+    color: white;
+}
+#button_div{
+	text-align:center;
+}
+#desc-title{
+	text-align:center;
+
+}
+</style>
 </head>
 <body>
 <%
@@ -20,10 +43,12 @@
 
 
 %>
-<div id="title">
-<h2>게임 화면을 구성해주세요.</h2>
-<p>이미지를 드래그 앤 드롭해서 배치하고 싶은 위치에 놓아주세요.</p>
-</div>
+<div id="desc-title">
+		<h2>게임을 생성합니다.</h2>
+		<p>1. 이미지를 드래그 앤 드롭해서 배치하고 싶은 위치에 놓아주세요.</p>
+		<p>2. 해당 칸에 한자를 추가해주세요.</p>
+		
+	</div>
 
 <div id="selectGroup">
 이미지 추가하기
@@ -64,10 +89,11 @@
 
 <input id="saveChinese" name="saveChinese" type="hidden">
 <input id="saveImage" name="saveImage" type="hidden">
+<div id="button_div">
 
-<button type="button" onclick="saveData()">저장</button>
-<input type="submit" value="제작">
-
+<button type="button" onclick="saveData()" class="button">저장</button>
+<input type="submit" value="제작" class="button">
+</div>
 </form>
 </body>
 </html>

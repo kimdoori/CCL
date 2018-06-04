@@ -11,6 +11,7 @@ function goBack(){
 	history.back();
 }
 </script>
+
 </head>
 <body>
 <div id="quizContainer">
@@ -49,7 +50,7 @@ function goBack(){
 
 %>
 <br>
-<button onclick="goBack()">퀴즈 다시 풀기</button>
+<button onclick="goBack()" class="button">퀴즈 다시 풀기</button>
 </div>
 </body>
 </html>

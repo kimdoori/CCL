@@ -84,7 +84,7 @@
   border-bottom: 1px dotted;
 }
 .blog-card .details a:hover {
-  color: #75D13B;
+  color: #039be5;
 }
 .blog-card .description {
   padding: 10px;
@@ -112,7 +112,7 @@
 }
 .blog-card .description p:after {
   content: "";
-  background: #75D13B;
+  background: #039be5;
   height: 6px;
   width: 40px;
   /*POSITION*/
@@ -121,7 +121,7 @@
   left: 0;
 }
 .blog-card .description a {
-  color: #75D13B;
+  color: #039be5;
   margin-bottom: 10px;
   float: right;
 }

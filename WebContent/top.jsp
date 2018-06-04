@@ -13,13 +13,13 @@
 <tr>
 <td>
 <div style="text-align:right;padding-right:100px;border:0px">
-	<a href='createGameList.jsp'><button class='modeButton'>º</button></a>
+	<a href='createGameList.jsp'><button class='modeButton'>게임 관리</button></a>
 </div></td>
 </tr>
 <tr>
 <td>
 <div style="text-align:center;padding:8px;">
-<h1><a href='index.jsp'>CCL</a></h1>
+<h1 class="logo"><a href='index.jsp'>CCL</a></h1>
 </div>
 </td>
 </tr>

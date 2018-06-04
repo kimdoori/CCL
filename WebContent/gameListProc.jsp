@@ -58,7 +58,7 @@ try {
 			"<img class='activator' src='"+showImage+"' style='height:250px;'></div>"+
 			"<div class='card-content' style='text-align:left;'>"+
 			"<span class='card-title activator grey-text text-darken-4'>"+title+"<i class='material-icons right'>more_vert</i></span>"+
-			"<p><a href='playingGame.jsp?folderName="+tempFileName+"&character="+character+"'>Go to Play</a></p>"+
+			"<p><a href='playingGame.jsp?folderName="+tempFileName+"&title="+title+"&character="+character+"'>Go to Play</a></p>"+
 			"</div><div class='card-reveal'><span class='card-title grey-text text-darken-4'>"+title+"<i class='material-icons right'>close</i></span>"+
 			"<p>생성자 : "+creater+"<br>생성일 : "+w_time+"<br><br><br>캐릭터 : <img src='image/"+character+"' style='width:60px;height:60px;'></p>"+
 			"</div></div>");

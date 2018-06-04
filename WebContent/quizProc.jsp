@@ -13,6 +13,12 @@ function goBack(){
 	history.back();
 }
 </script>
+<style>
+
+#question{
+	font-size:1.3em;
+}
+</style>
 </head>
 <body>
 <%
@@ -20,6 +26,8 @@ request.setCharacterEncoding("UTF-8");
 response.setContentType("text/html; charset=UTF-8");
 %>
 <div id="quizContainer">
+<button class="back" type="button" onclick="goBack()"><</button>
+
 <h3>한자 QU!Z !</h3>
 <hr>
 <form action="checkAnswer.jsp" method="get">
@@ -57,7 +65,7 @@ response.setContentType("text/html; charset=UTF-8");
 	 	System.out.println(" chineseDic"+i+" : " + chineseDic[i]);
 	} */
 	
-	
+	out.println("<span id='question'>");
 	try {
 		String chineseFilePath = application.getRealPath("/WEB-INF/game/"+fileName+"/saveChinese.txt");
 
@@ -71,7 +79,7 @@ response.setContentType("text/html; charset=UTF-8");
 			if (str == null)
 				break;
 			String[] item = str.split(","); 
-			out.println(count+1+". "+item[2]+"  "+item[3]+"<br>");
+			out.println((count+1)+". "+item[2]+"  "+item[3]+"<br>");
 			int answerIndex = (int)(Math.random() * 4);
 			for(int i=0;i<4;i++){
 				if(i==answerIndex){
@@ -85,7 +93,7 @@ response.setContentType("text/html; charset=UTF-8");
 				}
 				out.println("<input name='answer"+count+"' type='radio' value='"+chineseDic[randomIndex]+"' required>"+chineseDic[randomIndex]);
 			}
-			out.println("<br>");
+			out.println("<br><br>");
 			chinese.append(str+":");
 			count++;
 		}
@@ -96,11 +104,13 @@ response.setContentType("text/html; charset=UTF-8");
 	} catch (Exception e) {
 		out.println("파일을 읽을 수 없습니다.");
 	}
+	out.println("</span>");
 
 %>
+	
+
 <br>
-<input type="submit" value="제출">
-<button type="button" onclick="goBack()">게임으로 돌아가기</button>
+<input type="submit" class="button" value="제출">
 
 </form>
 </div>

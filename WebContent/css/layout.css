@@ -1,10 +1,11 @@
 .modeButton{
 	position:absolute;
 	background-color:rgb(0,0,30,0);
-    color:#78E678;
-    font-size: 20px;
+	color:#039be5;
+    font-size: 14px;
     border: none;
     cursor: pointer;
+    margin:10px;
   /*   font-family:'HELLO DENVER DISPLAY BOLD Bold','neon'; */
 }
 .top-menu-container {
@@ -88,10 +89,10 @@
 	    margin-right:30px;
 
 }
-h1{
+h1.logo{
 	font-family: 'Bowlby One SC', cursive;
 	color:#039be5;
 }
-h1 a{
+h1.logo a{
 text-decoration: none;
 }

@@ -5,3 +5,25 @@
 	text-align:center;
 	
 }
+.back{
+    background-color: white;
+    color: black;
+    border: 2px solid #e7e7e7;
+   	float:left;
+}
+
+.back:hover {background-color: #e7e7e7;}
+
+.button{
+   background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+    width:150px;
+    heigth:100px;
+    padding:10px;
+    margin:10px;
+}
+.button:hover {
+    background-color: #008CBA;
+    color: white;
+}
