@@ -9,10 +9,10 @@
 
 </head>
 <body>
-<table width="100%">
+<table width="100%" border="0">
 <tr>
 <td>
-<div style="text-align:right;padding-right:100px;">
+<div style="text-align:right;padding-right:100px;border:0px">
 	<a href='createGameList.jsp'><button class='modeButton'>º</button></a>
 </div></td>
 </tr>
@@ -25,7 +25,7 @@
 </tr>
 
 <tr>
-<td style="border-top:2px solid #5cc461;border-bottom:2px solid #5cc461;">
+<td style="border-top:2px solid #039be5;border-bottom:2px solid #039be5;">
 <div id="top">
 
  <ul class="area">

@@ -11,7 +11,7 @@
 <body>
 <div id="infoContainer">
 <h3>게임 정보 입력</h3>
-<form action="createMainGame.jsp" method="post">
+<form action="createMainGame.jsp" method="get">
 <input type="text" name="title" placeholder="게임 제목" required><br>
 <input type="text" name="writer" placeholder="제작자 이름" required><br>
 <input type="text" name="showImage" placeholder="대표이미지" required><br>
