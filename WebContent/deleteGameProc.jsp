@@ -13,11 +13,21 @@
 	request.setCharacterEncoding("UTF-8");
 
 	String folderName = request.getParameter("folderName");
-	out.println(folderName);
 
 	String filepath = application.getRealPath("/WEB-INF/game/"+folderName+"/");
 
-	deleteAllFiles(filepath);
+	
+	File file = new File(filepath); //폴더내 파일을 배열로 가져온다.
+	File file1 = new File(filepath+"gameInfo.txt");
+	File file2 = new File(filepath+"saveChinese.txt");
+	File file3 = new File(filepath+"saveImage.txt");
+	
+	file1.delete();
+	file2.delete();
+	file3.delete();
+	
+	file.delete(); 
+	
 	
 	/* try{
 
@@ -32,34 +42,11 @@
 	out.println(result);
 	out.println("왜"); */
 	
-	response.sendRedirect("createGameList.jsp");
+	//response.sendRedirect("createGameList.jsp");
 	
+	out.println("<script>window.location.reload();window.location.href = 'createGameList.jsp'; </script>");
 
 
-
-%>
-
-<%!
-public static void deleteAllFiles(String path){ 
-
-	File file = new File(path); //폴더내 파일을 배열로 가져온다.
-	File[] tempFile = file.listFiles();
-	if(tempFile.length >0){
-		for (int i = 0; i < tempFile.length; i++){
-			System.out.println(tempFile[i]);
-
-			if(tempFile[i].isFile()){ 
-				tempFile[i].delete();
-				
-			}else{
-				deleteAllFiles(tempFile[i].getPath());
-			}
-			tempFile[i].delete(); 
-		} 
-		file.delete(); 
-	}
-
-}
 %>
 
 </body>

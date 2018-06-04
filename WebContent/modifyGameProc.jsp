@@ -189,7 +189,8 @@
 				out.println("</tr>");
 				
 			}
-			
+			reader.close();
+
 		%>
 
 	</table>

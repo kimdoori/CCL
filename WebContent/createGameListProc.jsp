@@ -76,6 +76,7 @@ try {
 		
 
 	} 
+	reader.close();
 
 } catch (Exception e) {
 	out.println("파일을 읽을 수 없습니다.");

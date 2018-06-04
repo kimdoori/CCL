@@ -87,7 +87,7 @@ response.setContentType("text/html; charset=UTF-8");
 					continue;
 				}
 				int randomIndex = (int)(Math.random() * diccount);
-				if(item[1].equals(chineseDic[randomIndex])){
+				if(item[1].replaceAll(" ","").equals(chineseDic[randomIndex].replaceAll(" ",""))){
 					i--;
 					continue;
 				}
