@@ -30,6 +30,9 @@
 }
 </style>
 <script>
+function goToAdd(){
+	location.href="addChinese.jsp";
+}
 function goToCreate(){
 	location.href="createGameInfo.jsp";
 }
@@ -38,6 +41,8 @@ function goToCreate(){
 <body>
 <center><h2>게임 관리</h2></center>
 <div id="create-button">
+<button class="button" onclick="goToAdd()">랜덤 한자 추가</button>
+
 <button class="button" onclick="goToCreate()">새로운 게임 제작</button>
 </div>
 
