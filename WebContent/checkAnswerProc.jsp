@@ -33,7 +33,7 @@ function goBack(){
 		String answer = request.getParameter("answer"+i);
 		String[] item = chineseList[i].split(",");
 		String span="";
-		if(item[1].equals(answer)){
+		if((item[1]+","+item[2]+","+item[3]).equals(answer)){
 			span="<span style='font-weight:bold;font-size:1em;color:red;position:relative; left:-50px;'> O</span>";
 		}else{
 			span="<span style='font-weight:bold;font-size:1em;color:red;position:relative; left:-50px;'> X</span>";
@@ -41,7 +41,7 @@ function goBack(){
 		}
 		out.println("<h3>"+(i+1)+". "+span+item[2]+" "+item[3]+" "+item[1]+"</h3>");
 		
-		out.print("선택한 답 : "+answer);
+		out.print("선택한 답 : "+answer.replaceAll(","," "));
 		
 		
 		

@@ -36,7 +36,7 @@ function goToCreate(){
 </script>
 </head>
 <body>
-
+<center><h2>게임 관리</h2></center>
 <div id="create-button">
 <button class="button" onclick="goToCreate()">새로운 게임 제작</button>
 </div>

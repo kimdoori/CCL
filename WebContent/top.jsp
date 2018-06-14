@@ -6,14 +6,24 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/layout.css">
 <title>Insert title here</title>
+<script>
+function goToManage(){
+	
+	var pw = prompt("관리자 비밀번호를 입력해주세요.", "");
+	if (pw != null && pw == "0228") {
+	    location.href = "createGameList.jsp";
+	}
+	
+}
 
+</script>
 </head>
 <body>
 <table width="100%" border="0">
 <tr>
 <td>
 <div style="text-align:right;padding-right:100px;border:0px">
-	<a href='createGameList.jsp'><button class='modeButton'>게임 관리</button></a>
+	<a href='#'><button class='modeButton' onclick="goToManage()">게임 관리</button></a>
 </div></td>
 </tr>
 <tr>

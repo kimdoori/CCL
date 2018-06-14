@@ -40,6 +40,8 @@ response.setContentType("text/html; charset=UTF-8");
 	BufferedReader reader = null;
 	int diccount=0;
 	String[] chineseDic = null;
+	String[] chineseDic_mean = null;
+	String[] chineseDic_sound = null;
 
 	try {
 		String dicFilePath = application.getRealPath("/dic/chineseDic.txt");
@@ -47,6 +49,9 @@ response.setContentType("text/html; charset=UTF-8");
 		reader = new BufferedReader(new FileReader(dicFilePath));
 		
 		StringBuffer chinese = new StringBuffer();
+		StringBuffer mean = new StringBuffer();
+		StringBuffer sound = new StringBuffer();
+		
 		String str;
 		while (true) {
 			str = reader.readLine();
@@ -54,9 +59,15 @@ response.setContentType("text/html; charset=UTF-8");
 				break;
 			String[] answerItem = str.split(",");
 			chinese.append(answerItem[0]+":");
+			mean.append(answerItem[1]+":");
+			sound.append(answerItem[2]+":");
+			
 			diccount++;
 		}
 		chineseDic = chinese.toString().split(":");
+		chineseDic_mean = mean.toString().split(":");
+		chineseDic_sound = sound.toString().split(":");
+		
 	} catch (Exception e) {
 		out.println("파일을 읽을 수 없습니다.");
 	}
@@ -83,15 +94,19 @@ response.setContentType("text/html; charset=UTF-8");
 			int answerIndex = (int)(Math.random() * 4);
 			for(int i=0;i<4;i++){
 				if(i==answerIndex){
-					out.println("<input name='answer"+count+"' type='radio' value='"+item[1]+"' required>"+item[1]);
+					out.println("<input name='answer"+count+"' type='radio' value='"+item[1]+","+item[2]+","+item[3]+"' required>"+item[1]);
 					continue;
 				}
+
 				int randomIndex = (int)(Math.random() * diccount);
-				if(item[1].replaceAll(" ","").equals(chineseDic[randomIndex].replaceAll(" ",""))){
+				//System.out.println("item[1] : "+item[1]+"     chineseDic[randomIndex] : "+chineseDic[randomIndex]);
+
+				if(item[1].equals(chineseDic[randomIndex])){
+					System.out.println(" 같다 item[1] : "+item[1]+"     chineseDic[randomIndex] : "+chineseDic[randomIndex]);
 					i--;
 					continue;
 				}
-				out.println("<input name='answer"+count+"' type='radio' value='"+chineseDic[randomIndex]+"' required>"+chineseDic[randomIndex]);
+				out.println("<input name='answer"+count+"' type='radio' value='"+chineseDic[randomIndex]+","+chineseDic_mean[randomIndex]+","+chineseDic_sound[randomIndex]+"' required>"+chineseDic[randomIndex]);
 			}
 			out.println("<br><br>");
 			chinese.append(str+":");
